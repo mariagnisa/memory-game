@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f2f2f2;
+  text-align: center;
+  justify-content: center;
+}
+
+.memoryBoard {
+  height: 80px;
+  width: 80px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+}
+
+.wrapper {
+width: 50%;
+height: 540px;
+border: 1px solid grey;
+border-radius: 5px;
+display: inline-flex;
+}
+
+h1, p {
+  font-family: Palatino Linotype;
+}
