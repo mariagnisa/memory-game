@@ -1,6 +1,6 @@
-  'use strict';
+'use strict';
 
-  let images = [
+let images = [
   "avatar/avatar_0.jpg",
   "avatar/avatar_1.jpg",
   "avatar/avatar_2.jpg",
@@ -44,4 +44,21 @@ function newBoard() {
   }
 
   document.getElementById('memoryBoard').innerHTML = output;
+}
+
+// Flip the cards
+function memoryFlipCard(card, value){
+  if (card.innerHTML == "" && card_values.length < 2) {
+
+    card.style.background = "url(" + value + ") no-repeat";
+    card.style.backgroundSize = "80px 80px";
+
+    if (card_values.length == 0) {
+      card_values.push(value);
+      card_id.push(card.id);
+    } else if (card_values.length == 1) {
+      card_values.push(value);
+      card_id.push(card.id);
+    }
+  }
 }
