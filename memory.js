@@ -33,3 +33,15 @@ Array.prototype.memory_card_shuffle = function () {
     this[i] = temp;
   }
 };
+
+// Create a new memory board
+function newBoard() {
+  cards_flip = 0;
+  let output = '';
+  images.memory_card_shuffle();
+  for (let i = 0; i < images.length; i++) {
+    output += '<div id="card_' + i +'" onclick="memoryFlipCard(this,\''+images[i] + '\')"></div>';
+  }
+
+  document.getElementById('memoryBoard').innerHTML = output;
+}
