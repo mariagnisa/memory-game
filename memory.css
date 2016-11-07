@@ -34,14 +34,15 @@ img {
 
 .wrapper {
 width: 50%;
-height: 540px;
+max-width: 375px;
+height: auto;
 border: 1px solid grey;
 border-radius: 5px;
 display: inline-flex;
 }
 
-h1, p {
-  font-family: Palatino Linotype;
+h1, h3, p {
+  font-family: Georgia;
 }
 
 #reloadButton {
