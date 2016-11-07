@@ -8,9 +8,7 @@ body {
   justify-content: center;
 }
 
-.memoryBoard {
-  height: 80px;
-  width: 80px;
+#memoryBoard {
   background-color: white;
   border-radius: 5px;
   padding: 5px;
