@@ -27,11 +27,6 @@ body {
   cursor: pointer;
 }
 
-img {
-  height: 100%;
-  width: 100%;
-}
-
 .wrapper {
 width: 50%;
 max-width: 375px;
@@ -43,6 +38,11 @@ display: inline-flex;
 
 h1, h3, p {
   font-family: Georgia;
+}
+
+img {
+  height: 60px;
+  width: 60px;
 }
 
 #reloadButton {
