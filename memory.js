@@ -36,7 +36,7 @@ Array.prototype.memory_card_shuffle = function () {
 
 // Create a new memory board
 function memoryFlipCard(card, value){
-
+  
   if (card.innerHTML == "" && card_values.length < 2) {
     card.style.background = "url(" + value + ") no-repeat";
     card.style.backgroundSize = "80px 80px";
@@ -62,8 +62,24 @@ function memoryFlipCard(card, value){
         if (cards_flip === images.length) {
           document.getElementById('message').innerHTML = "Congratulations, you have finished the board in! <br> If you like to play again, just click on the button below.";
         }
-      } 
+      } else {
+        // Flip the two cards back over
+        function flipTwoBack() {
+          let card_1 = document.getElementById(card_id[0]);
+          let card_2 = document.getElementById(card_id[1]);
 
+          card_1.style.background = 'url("avatar/william.jpg") no-repeat';
+          card_1.style.backgroundSize = "80px 80px";
+          card_1.innerHTML = "";
+          card_2.style.background = 'url("avatar/william.jpg") no-repeat';
+          card_2.style.backgroundSize = "80px 80px";
+          card_2.innerHTML = "";
+
+          // clear both arrays
+          card_values = [];
+          card_id = [];
+        }
+      }
     }
   }
 }
