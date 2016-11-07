@@ -35,21 +35,9 @@ Array.prototype.memory_card_shuffle = function () {
 };
 
 // Create a new memory board
-function newBoard() {
-  cards_flip = 0;
-  let output = '';
-  images.memory_card_shuffle();
-  for (let i = 0; i < images.length; i++) {
-    output += '<div id="card_' + i +'" onclick="memoryFlipCard(this,\''+images[i] + '\')"></div>';
-  }
-
-  document.getElementById('memoryBoard').innerHTML = output;
-}
-
-// Flip the cards
 function memoryFlipCard(card, value){
-  if (card.innerHTML == "" && card_values.length < 2) {
 
+  if (card.innerHTML == "" && card_values.length < 2) {
     card.style.background = "url(" + value + ") no-repeat";
     card.style.backgroundSize = "80px 80px";
 
@@ -59,6 +47,23 @@ function memoryFlipCard(card, value){
     } else if (card_values.length == 1) {
       card_values.push(value);
       card_id.push(card.id);
+    }
+
+
+    if(card_values.length == 2) {
+      if (card_values[0] == card_values[1]) {
+        cards_flip += 2;
+
+        // clear both arrays
+        card_values = [];
+        card_id = [];
+
+        // check if the board is clear
+        if (cards_flip === images.length) {
+          document.getElementById('message').innerHTML = "Congratulations, you have finished the board in! <br> If you like to play again, just click on the button below.";
+        }
+      } 
+
     }
   }
 }
