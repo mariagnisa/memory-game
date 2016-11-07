@@ -28,7 +28,13 @@
     'use strict';
       newBoard();
 
+      let reloadButton = document.getElementById('reloadButton');
+      reloadButton.addEventListener("click", function(event) {
+        //location.reload(true);
+        document.getElementById('memoryBoard').innerHTML = "";
 
+        newBoard();
+      });
 
     </script>
 
