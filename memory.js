@@ -36,7 +36,7 @@ Array.prototype.memory_card_shuffle = function () {
 
 // Create a new memory board
 function memoryFlipCard(card, value){
-  
+
   if (card.innerHTML == "" && card_values.length < 2) {
     card.style.background = "url(" + value + ") no-repeat";
     card.style.backgroundSize = "80px 80px";
@@ -79,6 +79,7 @@ function memoryFlipCard(card, value){
           card_values = [];
           card_id = [];
         }
+        setTimeout(flipTwoBack, 700);
       }
     }
   }
