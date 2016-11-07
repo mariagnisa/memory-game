@@ -22,6 +22,7 @@ let images = [
 let card_values = [];
 let card_id = [];
 let cards_flip = 0;
+let count = 0;
 
 // Shuffle the cards
 Array.prototype.memory_card_shuffle = function () {
@@ -35,8 +36,21 @@ Array.prototype.memory_card_shuffle = function () {
 };
 
 // Create a new memory board
-function memoryFlipCard(card, value){
+function newBoard() {
+  cards_flip = 0;
+  count = 0;
+  let output = '';
+  images.memory_card_shuffle();
+  for (let i = 0; i < images.length; i++) {
+    output += '<div id="card_' + i +'" onclick="memoryFlipCard(this,\''+images[i] + '\')"></div>';
+  }
 
+  document.getElementById('memoryBoard').innerHTML = output;
+}
+
+// Flip the cards
+function memoryFlipCard(card, value){
+  count++;
   if (card.innerHTML == "" && card_values.length < 2) {
     card.style.background = "url(" + value + ") no-repeat";
     card.style.backgroundSize = "80px 80px";
@@ -60,7 +74,7 @@ function memoryFlipCard(card, value){
 
         // check if the board is clear
         if (cards_flip === images.length) {
-          document.getElementById('message').innerHTML = "Congratulations, you have finished the board in! <br> If you like to play again, just click on the button below.";
+          document.getElementById('message').innerHTML = "Congratulations, you have finished the board in " + count + " clicks! <br> If you like to play again, just click on the button below.";
         }
       } else {
         // Flip the two cards back over
@@ -79,6 +93,7 @@ function memoryFlipCard(card, value){
           card_values = [];
           card_id = [];
         }
+
         setTimeout(flipTwoBack, 700);
       }
     }
