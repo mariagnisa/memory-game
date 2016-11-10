@@ -74,7 +74,7 @@ function memoryFlipCard(card, value){
 
         // check if the board is clear
         if (cards_flip === images.length) {
-          document.getElementById('message').innerHTML = "Congratulations, you have finished the board in " + count + " clicks! <br> If you like to play again, just click on the button below.";
+          document.getElementById('message').innerHTML = "Congratulations, you have finished the board in " + count + " click! <br> If you like to play again, just click on the button below.";
         }
       } else {
         // Flip the two cards back over

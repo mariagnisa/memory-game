@@ -14,8 +14,9 @@
     <p> Test your memory and find matching cats in the cat jungle.</p>
     <img src="avatar/tassavtryck.jpg" alt="Tassavtryck" />
     <p> Start the game by clicking on one of the cards. </p>
+
     <div class="wrapper">
-      <div class="memoryBoard">
+      <div id="memoryBoard">
       </div>
     </div>
     <br>
@@ -26,16 +27,15 @@
     <br>
     <script>
     'use strict';
+    newBoard();
+
+    let reloadButton = document.getElementById('reloadButton');
+    reloadButton.addEventListener("click", function(event) {
+      //location.reload(true);
+      document.getElementById('memoryBoard').innerHTML = "";
+
       newBoard();
-
-      let reloadButton = document.getElementById('reloadButton');
-      reloadButton.addEventListener("click", function(event) {
-        //location.reload(true);
-        document.getElementById('memoryBoard').innerHTML = "";
-
-        newBoard();
-      });
-
+    });
     </script>
 
   </body>
