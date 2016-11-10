@@ -33,8 +33,6 @@ body {
 }
 
 .wrapper {
-width: 50%;
-max-width: 375px;
 height: auto;
 border: 1px solid grey;
 border-radius: 5px;
@@ -66,4 +64,16 @@ img {
   display: inline-block;
   padding: 3px;
   cursor: pointer;
+}
+
+@media screen and (min-width: 564px){
+  .wrapper {
+    width: 375px;
+  }
+}
+
+@media screen and (max-width: 563px){
+  .wrapper {
+    width: 284px;
+  }
 }
