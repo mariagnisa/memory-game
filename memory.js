@@ -52,8 +52,13 @@ function newBoard() {
 function memoryFlipCard(card, value){
   count++;
   if (card.innerHTML == "" && card_values.length < 2) {
-    card.style.background = "url(" + value + ") no-repeat";
-    card.style.backgroundSize = "80px 80px";
+    // flip the card with transition
+    card.style.transform = "rotateY(-180deg)";
+    // hide the shown image under transition
+    setTimeout(function (){
+      card.style.background = "url(" + value + ") no-repeat";
+      card.style.backgroundSize = "80px 80px";
+    }, 200);
 
     if (card_values.length == 0) {
       card_values.push(value);
@@ -74,7 +79,7 @@ function memoryFlipCard(card, value){
 
         // check if the board is clear
         if (cards_flip === images.length) {
-          document.getElementById('message').innerHTML = "Congratulations, you have finished the board in " + count + " click! <br> If you like to play again, just click on the button below.";
+          document.getElementById('message').innerHTML = "Congratulations, you have finished the board in " + count + " clicks! <br> If you like to play again, just click on the button below.";
         }
       } else {
         // Flip the two cards back over
@@ -82,11 +87,19 @@ function memoryFlipCard(card, value){
           let card_1 = document.getElementById(card_id[0]);
           let card_2 = document.getElementById(card_id[1]);
 
-          card_1.style.background = 'url("avatar/william.jpg") no-repeat';
-          card_1.style.backgroundSize = "80px 80px";
+          // Flips the cards back with transition
+          card_1.style.transform = "rotateY(0deg)";
+          card_2.style.transform = "rotateY(0deg)";
+
+          // hide the shown image under transition
+          setTimeout(function(){
+            card_1.style.background = 'url("avatar/william.jpg") no-repeat';
+            card_1.style.backgroundSize = "80px 80px";
+            card_2.style.background = 'url("avatar/william.jpg") no-repeat';
+            card_2.style.backgroundSize = "80px 80px";
+          }, 200);
+
           card_1.innerHTML = "";
-          card_2.style.background = 'url("avatar/william.jpg") no-repeat';
-          card_2.style.backgroundSize = "80px 80px";
           card_2.innerHTML = "";
 
           // clear both arrays
@@ -94,7 +107,7 @@ function memoryFlipCard(card, value){
           card_id = [];
         }
 
-        setTimeout(flipTwoBack, 700);
+        setTimeout(flipTwoBack, 1200);
       }
     }
   }
